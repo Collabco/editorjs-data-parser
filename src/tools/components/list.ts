@@ -1,13 +1,12 @@
-export const list = (param: any[]) => {
+export const list = (param: any[], style: string) => {
   let listValue = '';
-
-  listValue += `<ol>`;
-
+  style === 'ordered' ? listValue += `<ol>` : listValue += `<ul>`
+  
   param.forEach((items: any) => {
     listValue += `<li>${items}</li>`;
   });
 
-  listValue += `</ol>`;
+  style === 'ordered' ? listValue += `</ol>` : listValue += `</ul>`
 
   return listValue;
 };

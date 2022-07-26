@@ -13,5 +13,5 @@ export const image = (param: ImgTypes) => {
     param.withBorder ? 'ejs-image__withBorder' : ''
   } ${param.withBackground ? 'ejs-img__background' : ''}`;
 
-  return `<div class="${imgParams}"><img class="ejs-image" src="${param.file.url}" alt="${param.caption}"></div>`;
+  return `<div class="${imgParams}"><img class="ejs-image img-responsive" src="${param.file.url}" alt="${param.caption}"></div>`;
 };
