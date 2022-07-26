@@ -18,7 +18,7 @@ const editorJsParser = (value: any[]) => {
   let editorData = '';
 
   try {
-    value.forEach((element: { type?: string; data: any }) => {
+    value.forEach((element: { type?: string; data: any; tunes?: any }) => {
       switch (element.type) {
         case 'checklist':
           editorData += checklist(element.data.items);
@@ -33,7 +33,7 @@ const editorJsParser = (value: any[]) => {
           editorData += embed(element.data);
           break;
         case 'header':
-          editorData += header(element.data.text, element.data.level);
+          editorData += header(element.data.text, element.data.level, element.tunes.alignment);
           break;
         case 'image':
           editorData += image(element.data);
@@ -45,7 +45,7 @@ const editorJsParser = (value: any[]) => {
           editorData += list(element.data.items, element.data.style);
           break;
         case 'paragraph':
-          editorData += paragraph(element.data.text);
+          editorData += paragraph(element.data.text, element.tunes.alignment);
           break;
         case 'quote':
           editorData += quote(element.data.caption, element.data.text);

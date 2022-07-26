@@ -1,3 +1,3 @@
-export const paragraph = (param: string) => {
-  return `<p class="ejs-paragraph">${param}</p>`;
+export const paragraph = (param: string, alignment: string) => {
+  return `<p style="text-align: ${alignment} ;" class="ejs-paragraph">${param}</p>`;
 };
