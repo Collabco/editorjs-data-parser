@@ -114,7 +114,7 @@ const $1c5f620bfcf47d1e$export$9852986a3ec5f6a0 = (params)=>{
     template = `
   <div class="table-responsive">
     <table class='table ejs-table'>
-      <caption>Data table</caption>
+      <caption class="sr-only">Data table</caption>
         <thead class='ejs-table__thead'>
             <tr>
                 ${tableHeader}

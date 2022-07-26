@@ -19,7 +19,7 @@ export const table = (params: { data: { content: string[][] } }) => {
   template = `
   <div class="table-responsive">
     <table class='table ejs-table'>
-      <caption>Data table</caption>
+      <caption class="sr-only">Data table</caption>
         <thead class='ejs-table__thead'>
             <tr>
                 ${tableHeader}
