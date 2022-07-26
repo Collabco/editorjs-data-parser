@@ -34,22 +34,22 @@ const $a8e45e348eee6521$export$38e42c68cf43b5d4 = (param, type, alignment)=>{
     let headerValue = '';
     switch(type){
         case 1:
-            headerValue += `<h1 style="text-align: ${alignment};" class="ejs-header ejs-h1">${param}</h1>`;
+            headerValue += `<h1 style="text-align:${alignment};" class="ejs-header ejs-h1">${param}</h1>`;
             break;
         case 2:
-            headerValue += `<h2 style="text-align: ${alignment};" class="ejs-header ejs-h2">${param}</h2>`;
+            headerValue += `<h2 style="text-align:${alignment};" class="ejs-header ejs-h2">${param}</h2>`;
             break;
         case 3:
-            headerValue += `<h3 style="text-align: ${alignment};" class="ejs-header ejs-h3">${param}</h3>`;
+            headerValue += `<h3 style="text-align:${alignment};" class="ejs-header ejs-h3">${param}</h3>`;
             break;
         case 4:
-            headerValue += `<h4 style="text-align: ${alignment};" class="ejs-header ejs-h4">${param}</h4>`;
+            headerValue += `<h4 style="text-align:${alignment};" class="ejs-header ejs-h4">${param}</h4>`;
             break;
         case 5:
-            headerValue += `<h5 style="text-align: ${alignment};" class="ejs-header ejs-h5">${param}</h5>`;
+            headerValue += `<h5 style="text-align:${alignment};" class="ejs-header ejs-h5">${param}</h5>`;
             break;
         case 6:
-            headerValue += `<h6 style="text-align: ${alignment};" class="ejs-header ejs-h6">${param}</h6>`;
+            headerValue += `<h6 style="text-align:${alignment};" class="ejs-header ejs-h6">${param}</h6>`;
             break;
         default:
             headerValue += '';
@@ -81,7 +81,7 @@ const $f9f17b47b14a1abb$export$8837f4fc672e936d = (param, style)=>{
 
 
 const $d64ca58d9dada782$export$9c206ddddb32a9b = (param, alignment)=>{
-    return `<p style="text-align: ${alignment} ;" class="ejs-paragraph">${param}</p>`;
+    return `<p style="text-align:${alignment};" class="ejs-paragraph">${param}</p>`;
 };
 
 
@@ -163,7 +163,7 @@ const $5e2f01247a5d6f10$export$af0ff169fc5a6554 = (value)=>{
                     editorData += $a9ab435479e985d6$export$2be46bb7e96db87f(element.data);
                     break;
                 case 'header':
-                    editorData += $a8e45e348eee6521$export$38e42c68cf43b5d4(element.data.text, element.data.level, element.tunes.alignment);
+                    editorData += $a8e45e348eee6521$export$38e42c68cf43b5d4(element.data.text, element.data.level, element.tunes.alignment.alignment);
                     break;
                 case 'image':
                     editorData += $09a35277ca4d3315$export$5c452ff88e35e47d(element.data);
@@ -175,7 +175,7 @@ const $5e2f01247a5d6f10$export$af0ff169fc5a6554 = (value)=>{
                     editorData += $f9f17b47b14a1abb$export$8837f4fc672e936d(element.data.items, element.data.style);
                     break;
                 case 'paragraph':
-                    editorData += $d64ca58d9dada782$export$9c206ddddb32a9b(element.data.text, element.tunes.alignment);
+                    editorData += $d64ca58d9dada782$export$9c206ddddb32a9b(element.data.text, element.tunes.alignment.alignment);
                     break;
                 case 'quote':
                     editorData += $40c3526b1cfe0abe$export$ee7a15c61bfdeb11(element.data.caption, element.data.text);

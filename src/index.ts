@@ -33,7 +33,7 @@ const editorJsParser = (value: any[]) => {
           editorData += embed(element.data);
           break;
         case 'header':
-          editorData += header(element.data.text, element.data.level, element.tunes.alignment);
+          editorData += header(element.data.text, element.data.level, element.tunes.alignment.alignment);
           break;
         case 'image':
           editorData += image(element.data);
@@ -45,7 +45,7 @@ const editorJsParser = (value: any[]) => {
           editorData += list(element.data.items, element.data.style);
           break;
         case 'paragraph':
-          editorData += paragraph(element.data.text, element.tunes.alignment);
+          editorData += paragraph(element.data.text, element.tunes.alignment.alignment);
           break;
         case 'quote':
           editorData += quote(element.data.caption, element.data.text);
