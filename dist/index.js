@@ -55,7 +55,7 @@ const $f01ac79a478c88f0$export$38e42c68cf43b5d4 = (param, type, alignment)=>{
 
 const $5dfec52a6397f247$export$5c452ff88e35e47d = (param)=>{
     const imgParams = `${param.stretched ? 'ejs-img__fullwidth' : ''} ${param.withBorder ? 'ejs-image__withBorder' : ''} ${param.withBackground ? 'ejs-img__background' : ''}`;
-    return `<div class="${imgParams}"><img class="ejs-image img-responsive" src="${param.file.url}" alt="${param.caption}"></div>`;
+    return `<div class="${imgParams}"><img class="ejs-image img-responsive" src="${param.file.url}" alt="${param.caption}" height="${param.height}" width="${param.width}"></div>`;
 };
 
 
