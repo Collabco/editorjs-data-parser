@@ -1,4 +1,4 @@
-export const header = (param: string, type: number, alignment: string) => {
+export const header = (param: string, type: number, alignment?: string) => {
   let headerValue = '';
   switch (type) {
     case 1:

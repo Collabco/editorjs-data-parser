@@ -16,7 +16,6 @@ import {
 
 const editorJsParser = (value: any[]) => {
   let editorData = '';
-
   try {
     value.forEach((element: { type?: string; data: any; tunes?: any }) => {
       switch (element.type) {
@@ -33,7 +32,11 @@ const editorJsParser = (value: any[]) => {
           editorData += embed(element.data);
           break;
         case 'header':
-          editorData += header(element.data.text, element.data.level, element.tunes.alignment.alignment);
+          if (element.tunes?.alignment?.alignment) {
+            editorData += header(element.data.text, element.data.level, element.tunes.alignment.alignment);
+          } else {
+            editorData += header(element.data.text, element.data.level);
+          }
           break;
         case 'image':
           editorData += image(element.data);
@@ -45,7 +48,11 @@ const editorJsParser = (value: any[]) => {
           editorData += list(element.data.items, element.data.style);
           break;
         case 'paragraph':
-          editorData += paragraph(element.data.text, element.tunes.alignment.alignment);
+          if (element.tunes?.alignment?.alignment) {
+            editorData += paragraph(element.data.text, element.tunes.alignment.alignment);
+          } else {
+            editorData += paragraph(element.data.text);
+          }
           break;
         case 'quote':
           editorData += quote(element.data.caption, element.data.text);
@@ -59,6 +66,26 @@ const editorJsParser = (value: any[]) => {
         case 'warning':
           editorData += warning(element.data);
           break;
+        case 'columns':
+          let master_div = document.createElement("div");
+          master_div.classList.add('m-t-sm', 'flex-container');
+          let data_0 = document.createElement("div");
+          data_0.classList.add('flex-xs-1');
+          let data_1 = document.createElement("div");
+          data_1.classList.add('flex-xs-1');
+          master_div.appendChild(data_0);
+          master_div.appendChild(data_1);
+          Object.entries(element.data.cols).forEach(([key, val]) => {
+            if (key === '0'){
+              // @ts-ignore
+              data_0.innerHTML += editorJsParser(val.blocks)
+            }
+            if(key === '1') {
+              // @ts-ignore
+              data_1.innerHTML += editorJsParser(val.blocks)
+            }     
+          });
+          editorData += master_div.outerHTML
         default:
           editorData += '';
       }
