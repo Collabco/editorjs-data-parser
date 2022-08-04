@@ -158,7 +158,8 @@ const $a8e101027d325e52$export$af0ff169fc5a6554 = (value)=>{
                     editorData += $6eea23872bc94b47$export$2be46bb7e96db87f(element.data);
                     break;
                 case 'header':
-                    editorData += $f01ac79a478c88f0$export$38e42c68cf43b5d4(element.data.text, element.data.level, element.tunes.alignment.alignment);
+                    if (element.tunes?.alignment?.alignment) editorData += $f01ac79a478c88f0$export$38e42c68cf43b5d4(element.data.text, element.data.level, element.tunes.alignment.alignment);
+                    else editorData += $f01ac79a478c88f0$export$38e42c68cf43b5d4(element.data.text, element.data.level);
                     break;
                 case 'image':
                     editorData += $5dfec52a6397f247$export$5c452ff88e35e47d(element.data);
@@ -170,7 +171,8 @@ const $a8e101027d325e52$export$af0ff169fc5a6554 = (value)=>{
                     editorData += $e4dd3b96a2f6d9f9$export$8837f4fc672e936d(element.data.items, element.data.style);
                     break;
                 case 'paragraph':
-                    editorData += $d0d8e84dbeb34e6f$export$9c206ddddb32a9b(element.data.text, element.tunes.alignment.alignment);
+                    if (element.tunes?.alignment?.alignment) editorData += $d0d8e84dbeb34e6f$export$9c206ddddb32a9b(element.data.text, element.tunes.alignment.alignment);
+                    else editorData += $d0d8e84dbeb34e6f$export$9c206ddddb32a9b(element.data.text);
                     break;
                 case 'quote':
                     editorData += $5cb9a3fc1d477a24$export$ee7a15c61bfdeb11(element.data.caption, element.data.text);
@@ -184,6 +186,22 @@ const $a8e101027d325e52$export$af0ff169fc5a6554 = (value)=>{
                 case 'warning':
                     editorData += $e77f67580b962bae$export$491112666e282270(element.data);
                     break;
+                case 'columns':
+                    let master_div = document.createElement("div");
+                    master_div.classList.add('m-t-sm', 'flex-container');
+                    let data_0 = document.createElement("div");
+                    data_0.classList.add('flex-xs-1');
+                    let data_1 = document.createElement("div");
+                    data_1.classList.add('flex-xs-1');
+                    master_div.appendChild(data_0);
+                    master_div.appendChild(data_1);
+                    Object.entries(element.data.cols).forEach(([key, val])=>{
+                        if (key === '0') // @ts-ignore
+                        data_0.innerHTML += $a8e101027d325e52$export$af0ff169fc5a6554(val.blocks);
+                        if (key === '1') // @ts-ignore
+                        data_1.innerHTML += $a8e101027d325e52$export$af0ff169fc5a6554(val.blocks);
+                    });
+                    editorData += master_div.outerHTML;
                 default:
                     editorData += '';
             }
