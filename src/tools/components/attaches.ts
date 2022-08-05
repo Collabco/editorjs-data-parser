@@ -8,7 +8,7 @@ export const attaches = (file: string, title?: string) => {
         </div>
         </div>
         <div class="cdx-attaches__file-info">
-        <div class="cdx-attaches__title" data-placeholder="File title">${title}/div>
+        <div class="cdx-attaches__title" data-placeholder="File title">${title}</div>
         </div>
         <a class="cdx-attaches__download-button" href="${file}" target="_blank" rel="nofollow noindex noreferrer">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
