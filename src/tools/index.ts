@@ -1,3 +1,4 @@
+export { attaches } from './components/attaches';
 export { checklist } from './components/checkList';
 export { code } from './components/code';
 export { delimiter } from './components/delimiter';

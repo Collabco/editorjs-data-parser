@@ -1,4 +1,5 @@
 import {
+  attaches,
   checklist,
   code,
   delimiter,
@@ -19,6 +20,9 @@ const editorJsParser = (value: any[]) => {
   try {
     value.forEach((element: { type?: string; data: any; tunes?: any }) => {
       switch (element.type) {
+        case 'attaches':
+          editorData += attaches(element.data.file.url, element.data.title)
+          break;
         case 'checklist':
           editorData += checklist(element.data.items);
           break;
