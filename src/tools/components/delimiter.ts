@@ -1,3 +1,3 @@
 export const delimiter = () => {
-  return `<div class="ejs-delimiter"></div>`;
+  return `<div class="ce-delimiter cdx-block"></div>`;
 };

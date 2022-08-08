@@ -35,7 +35,7 @@ const $e4b44153e6cf3ed2$export$6565f9f03506010b = (param)=>{
 
 
 const $5ce53dee6195f307$export$c889f2fcc19dbf12 = ()=>{
-    return `<div class="ejs-delimiter"></div>`;
+    return `<div class="ce-delimiter cdx-block"></div>`;
 };
 
 
@@ -50,22 +50,22 @@ const $f01ac79a478c88f0$export$38e42c68cf43b5d4 = (param, type, alignment)=>{
     let headerValue = '';
     switch(type){
         case 1:
-            headerValue += `<h1 style="text-align:${alignment};" class="ejs-header ejs-h1">${param}</h1>`;
+            headerValue += `<h1 style="text-align:${alignment};" class="ce-header ejs-h1">${param}</h1>`;
             break;
         case 2:
-            headerValue += `<h2 style="text-align:${alignment};" class="ejs-header ejs-h2">${param}</h2>`;
+            headerValue += `<h2 style="text-align:${alignment};" class="ce-header ejs-h2">${param}</h2>`;
             break;
         case 3:
-            headerValue += `<h3 style="text-align:${alignment};" class="ejs-header ejs-h3">${param}</h3>`;
+            headerValue += `<h3 style="text-align:${alignment};" class="ce-header ejs-h3">${param}</h3>`;
             break;
         case 4:
-            headerValue += `<h4 style="text-align:${alignment};" class="ejs-header ejs-h4">${param}</h4>`;
+            headerValue += `<h4 style="text-align:${alignment};" class="ce-header ejs-h4">${param}</h4>`;
             break;
         case 5:
-            headerValue += `<h5 style="text-align:${alignment};" class="ejs-header ejs-h5">${param}</h5>`;
+            headerValue += `<h5 style="text-align:${alignment};" class="ce-header ejs-h5">${param}</h5>`;
             break;
         case 6:
-            headerValue += `<h6 style="text-align:${alignment};" class="ejs-header ejs-h6">${param}</h6>`;
+            headerValue += `<h6 style="text-align:${alignment};" class="ce-header ejs-h6">${param}</h6>`;
             break;
         default:
             headerValue += '';
@@ -76,7 +76,7 @@ const $f01ac79a478c88f0$export$38e42c68cf43b5d4 = (param, type, alignment)=>{
 
 const $5dfec52a6397f247$export$5c452ff88e35e47d = (param)=>{
     const imgParams = `${param.stretched ? 'ejs-img__fullwidth' : ''} ${param.withBorder ? 'ejs-image__withBorder' : ''} ${param.withBackground ? 'ejs-img__background' : ''}`;
-    return `<div class="${imgParams}"><img class="ejs-image img-responsive" src="${param.file.url}" alt="${param.caption}" height="${param.height}" width="${param.width}"></div>`;
+    return `<div class="cdx-block cdx-image ${imgParams}"><img class="ejs-image img-responsive" src="${param.file.url}" alt="${param.caption}" height="${param.height}" width="${param.width}"></div>`;
 };
 
 
@@ -87,9 +87,9 @@ const $3aa7985ede99463e$export$9c30223ca0a664fb = (param)=>{
 
 const $e4dd3b96a2f6d9f9$export$8837f4fc672e936d = (param, style)=>{
     let listValue = '';
-    style === 'ordered' ? listValue += `<ol>` : listValue += `<ul>`;
+    style === 'ordered' ? listValue += `<ol class="cdx-block cdx-list cdx-list--ordered">` : listValue += `<ul class="cdx-block cdx-list cdx-list--unordered">`;
     param.forEach((items)=>{
-        listValue += `<li>${items}</li>`;
+        listValue += `<li class="cdx-list__item">${items}</li>`;
     });
     style === 'ordered' ? listValue += `</ol>` : listValue += `</ul>`;
     return listValue;
@@ -97,7 +97,7 @@ const $e4dd3b96a2f6d9f9$export$8837f4fc672e936d = (param, style)=>{
 
 
 const $d0d8e84dbeb34e6f$export$9c206ddddb32a9b = (param, alignment)=>{
-    return `<p style="text-align:${alignment};" class="ejs-paragraph">${param}</p>`;
+    return `<p style="text-align:${alignment};" class="ce-paragraph cdx-block">${param}</p>`;
 };
 
 
